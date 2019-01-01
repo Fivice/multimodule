@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>top.fivice</groupId>
+    <artifactId>multi-module</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+
+        <module>domain</module>
+        <module>dao</module>
+        <module>service</module>
+        <module>web</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncodding>UTF-8</project.build.sourceEncodding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <!--数据库相关版本说明-->
+        <druid.version>1.1.12</druid.version>
+        <mybatis.boot.starter.version>1.4.3</mybatis.boot.starter.version>
+        <!--<mysql.connector.java.version>5.1.44</mysql.connector.java.version>-->
+    </properties>
+
+    <!--公共依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <!--依赖管理-->
+    <dependencyManagement>
+        <dependencies>
+            <!--模块间依赖管理-->
+            <dependency>
+                <groupId>top.fivice</groupId>
+                <artifactId>domain</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>top.fivice</groupId>
+                <artifactId>dao</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>top.fivice</groupId>
+                <artifactId>service</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>top.fivice</groupId>
+                <artifactId>web</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <!--数据库相关依赖-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.boot.starter.version}</version>
+            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>mysql</groupId>-->
+                <!--<artifactId>mysql-connector-java</artifactId>-->
+                <!--<version>${mysql.connector.java.version}</version>-->
+            <!--</dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- The plugin rewrites your manifest -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.4.3.RELEASE</version>
+                <configuration><!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>top.fivice.Application</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                        </goals>
+                        <!--可以生成不含依赖包的不可执行Jar包-->
+                        <!-- configuration>
+                          <classifier>exec</classifier>
+                        </configuration> -->
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
