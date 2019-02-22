@@ -17,6 +17,16 @@
             <groupId>top.fivice</groupId>
             <artifactId>domain</artifactId>
         </dependency>
+        <!--数据库相关依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

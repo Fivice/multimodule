@@ -1,0 +1,6 @@
+server:
+  port: 80  #配置访问端口
+  servlet:
+    context-path: /multi
+    session:
+      timeout: 5s
