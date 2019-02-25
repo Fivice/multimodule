@@ -24,9 +24,14 @@
             <groupId>top.fivice</groupId>
             <artifactId>service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>top.fivice</groupId>
+            <artifactId>utils</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
+        <!-- 为jar包取名 -->
         <finalName>multi-module</finalName>
         <plugins>
             <plugin>

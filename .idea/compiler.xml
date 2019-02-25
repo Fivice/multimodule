@@ -9,6 +9,7 @@
         <module name="dao" />
         <module name="domain" />
         <module name="service" />
+        <module name="utils" />
         <module name="web" />
       </profile>
     </annotationProcessing>

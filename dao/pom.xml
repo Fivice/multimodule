@@ -17,6 +17,10 @@
             <groupId>top.fivice</groupId>
             <artifactId>domain</artifactId>
         </dependency>
+        <dependency>
+            <groupId>top.fivice</groupId>
+            <artifactId>utils</artifactId>
+        </dependency>
         <!--数据库相关依赖-->
         <dependency>
             <groupId>com.alibaba</groupId>

@@ -10,11 +10,11 @@
     <packaging>pom</packaging>
 
     <modules>
-
         <module>domain</module>
         <module>dao</module>
         <module>service</module>
         <module>web</module>
+        <module>utils</module>
     </modules>
 
     <parent>
@@ -24,6 +24,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <!--版本统一管理-->
     <properties>
         <project.build.sourceEncodding>UTF-8</project.build.sourceEncodding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -36,8 +37,9 @@
         <mybatisplus.version>2.1.8</mybatisplus.version>
         <!--工具类-->
         <fastjson.version>1.2.39</fastjson.version>
+        <common-lang3>3.8.1</common-lang3>
         <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
-        <!--shiro权限控制-->
+        <!--权限控制-->
         <shiro.version>1.4.0</shiro.version>
         <shiro-redis.version>2.4.2.1-RELEASE</shiro-redis.version>
     </properties>
@@ -78,14 +80,25 @@
                 <artifactId>web</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>top.fivice</groupId>
+                <artifactId>utils</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
 
-            <!--数据库相关依赖-->
+            <!--阿里数据线程池-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-            <!-- mybatis-plus begin -->
+            <!--阿里json工具类-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- mybatis-plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatisplus-spring-boot-starter</artifactId>
@@ -96,17 +109,16 @@
                 <artifactId>mybatis-plus</artifactId>
                 <version>${mybatisplus.version}</version>
             </dependency>
-            <!-- mybatis-plus end -->
-
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <!-- mysql数据库连接驱动 -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.connector.java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
             </dependency>
             <!--热部署插件-->
             <dependency>
@@ -115,12 +127,18 @@
                 <version>${spring-boot.version}</version>
                 <optional>true</optional>
             </dependency>
+            <!--权限管理工具类-->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
-
+            <!-- commons-lang3 工具类 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${common-lang3}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
