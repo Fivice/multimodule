@@ -31,10 +31,8 @@
         <java.version>1.8</java.version>
         <!--数据库相关版本说明-->
         <druid.version>1.1.12</druid.version>
-        <mybatis.boot.starter.version>2.1.3</mybatis.boot.starter.version>
-        <mysql.connector.java.version>5.1.44</mysql.connector.java.version>
-        <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
-        <mybatisplus.version>2.1.8</mybatisplus.version>
+        <mybatis.boot.starter.version>2.0.0</mybatis.boot.starter.version>
+        <mysql.connector.java.version>5.1.47</mysql.connector.java.version>
         <!--工具类-->
         <fastjson.version>1.2.39</fastjson.version>
         <common-lang3>3.8.1</common-lang3>
@@ -98,17 +96,13 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-            <!-- mybatis-plus -->
+            <!--mybatis整合springboot-->
             <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatisplus-spring-boot-starter</artifactId>
-                <version>${mybatisplus-spring-boot-starter.version}</version>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.boot.starter.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus</artifactId>
-                <version>${mybatisplus.version}</version>
-            </dependency>
+            <!--spring jpa-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
