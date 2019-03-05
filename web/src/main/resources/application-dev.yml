@@ -6,14 +6,24 @@ server:
     session:
       timeout: 5s
 
-#mysql数据库连接配置
+#Springboot 配置
 spring:
+  #mysql数据库连接配置
   datasource:
     url: jdbc:mysql://192.168.0.107:3306/tjun-training?characterEncoding=UTF-8&useSSL=false
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+  #thymeleaf 网页配置
+  thymeleaf:
+    mode: HTML5
+    encoding: utf-8
+    cache: false
+    servlet:
+      content-type: text/html
+    prefix: classpath:/templates/
+    suffix: .html
 #mybatis
 mybatis:
   mapper-locations: classpath:mapper/*.xml
